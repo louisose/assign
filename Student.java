@@ -1,17 +1,28 @@
-public class Student extends Customer
-{
-	// all instance variable should be private.
-	// then you create their accessors and modifers if need be.
-	// you need to add all abstract methods.
+public class Student extends Customer{
+  private static final double SAVINGS_INTEREST = 0.07;
+  private static final double CHECK_INTEREST = 0.03;
+  private static final double CHECK_CHARGE = 0.02;// As this is the dollar represntation of cents.
+  private static final double OVERDRAFT_PENALTY = 0.00;//As this is the double representaion of dollar.
+  // Also, i would need you tconfirm if a student can have overdraft fees or not.
 
-	public static final double SAVINGS_INTEREST = 0.07;
-	public static final double CHECK_INTEREST = 0.03;
-	public static final double CHECK_CHARGE = 2;
-	//IS THIS RIGHT?!?
-	public static final double OVERDRAFT_PENALTY = 0;
+  public Student(String firstName, String lastName, int age){
+    super(String firstName, String lastName, int age);
+  }
 
-	public Student(String firstName, String lastName, int age, int customerNumber)
-	{
-		super(firstName, lastName, age, customerNumber);
-	}
+  public double getSavingsInterest(){
+    return this.SAVINGS_INTEREST;
+  }
+  public double getCheckInterest(){
+    return this.CHECK_INTEREST;
+  }
+  public double getCheckCharge(){
+    return this.CHECK_CHARGE;
+  }
+  public double getOverDraftPenalty(){
+    return this.OVERDRAFT_PENALTY;
+  }
+
+  /*public String toString(){
+    return super().toString();
+  }*/
 }

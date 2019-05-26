@@ -1,33 +1,48 @@
-public class Senior extends Customer
-{
-	// all instance variable should be private.
-	// then you create their accessors and modifers if need be.
-	// you need to add all abstract methods.
+public class Senior extends Customer{
+  private boolean vip;
+  private static final double SAVINGS_INTEREST;
+  private static final double CHECK_INTEREST;
+  private static final double CHECK_CHARGE;// As this is the dollar represntation of cents.
+  private static final double OVERDRAFT_PENALTY;//As this is the double representaion of dollar.
 
-	private boolean vip;
-	public static final double SAVINGS_INTEREST;
-	public static final double CHECK_INTEREST = 0.04;
-	public static final double CHECK_CHARGE;
-	public static final double OVERDRAFT_PENALTY;
+  public Senior(String firstName, String lastName, int age){
+    super(firstName, lastName, age);
+    SAVINGS_INTEREST = 0.08;
+    CHECK_INTEREST = 0.04;
+    CHECK_CHARGE = 0.01;
+    OVERDRAFT_PENALTY = 10.00;
 
-	public Senior(String firstName, String lastName, int age, int customerNumber, boolean vip)
-	{
-		super(firstName, lastName, age, customerNumber);
-		this.vip = vip;
+  }
+  public Senior(String firstName, String lastName, int age, boolean vip){
+    super( firstName,  lastName, age);
+    if(vip == true){
+      SAVINGS_INTEREST = 0.1;
+      CHECK_INTEREST = 0.04;
+      CHECK_CHARGE = 0.00;
+      OVERDRAFT_PENALTY = 5.00;
+    }else{
+      SAVINGS_INTEREST = 0.08;
+      CHECK_INTEREST = 0.04;
+      CHECK_CHARGE = 0.01;
+      OVERDRAFT_PENALTY = 10.00;
+    }
 
-		if (vip == true)
-		{
-			SAVINGS_INTEREST = 0.1;
-			CHECK_CHARGE = 0;
-			OVERDRAFT_PENALTY = 5;
-		}
+  }
 
-		else
-		{
-			SAVINGS_INTEREST = 0.08;
-			CHECK_CHARGE = 0.04;
-			OVERDRAFT_PENALTY = 10;
-		}
-	}
+  public double getSavingsInterest(){
+    return this.SAVINGS_INTEREST;
+  }
+  public double getCheckInterest(){
+    return this.CHECK_INTEREST;
+  }
+  public double getCheckCharge(){
+    return this.CHECK_CHARGE;
+  }
+  public double getOverDraftPenalty(){
+    return this.OVERDRAFT_PENALTY;
+  }
 
+  /*public String toString(){
+    return super().toString();
+  }*/
 }
